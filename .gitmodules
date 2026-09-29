@@ -1,3 +1,6 @@
 [submodule "vcpkg"]
 	path = vcpkg
 	url = https://github.com/microsoft/vcpkg
+[submodule "google-benchmark"]
+	path = google-benchmark
+	url = git@github.com:google/benchmark
