@@ -1,0 +1,19 @@
+[project]
+name = "perf-ninja"
+version = "1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "scipy>=1.15.0"
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.scripts]
+ci = { cmd = "python ${PDM_PROJECT_ROOT}/buildbot/runCI.py -workdir ${PDM_PROJECT_ROOT}/labs -runner WinZen3" }
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

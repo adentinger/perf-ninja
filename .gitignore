@@ -24,3 +24,17 @@ build_baseline
 build
 results.json
 /tools/benchmark/
+
+# For pin the python version locally (e.g. 'uv python pin <version>' or
+# 'pyenv local <version>')
+/.python-version
+
+**/*.egg-info/
+**/__pycache__/
+**/__pypackages__/
+# Python vitrual environment
+.venv/
+.pdm-python
+# Result of pdm build
+/dist/
+/packages/*/dist/
