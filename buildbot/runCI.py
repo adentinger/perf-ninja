@@ -202,9 +202,9 @@ def buildAndValidate(labBuildDir):
 
   try:
     if sys.platform != 'win32':
-      subprocess.check_call("cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release -DCI=ON " + os.path.join(labBuildDir, ".."), shell=True)
+      subprocess.check_call("cmake -DCMAKE_TOOLCHAIN_FILE:FILEPATH=" + os.path.join(os.environ["PDM_PROJECT_ROOT"] + "/vcpkg/scripts/buildsystems/vcpkg.cmake") + " -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G Ninja -DCMAKE_BUILD_TYPE=Release -DCI=ON " + os.path.join(labBuildDir, ".."), shell=True)
     else:
-      subprocess.check_call("cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G Ninja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -DCI=ON " + os.path.join(labBuildDir, ".."), shell=True)
+      subprocess.check_call("cmake -DCMAKE_TOOLCHAIN_FILE:FILEPATH=" + os.path.join(os.environ["PDM_PROJECT_ROOT"] + "/vcpkg/scripts/buildsystems/vcpkg.cmake") + " -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G Ninja -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release -DCI=ON " + os.path.join(labBuildDir, ".."), shell=True)
     print("CMake - OK")
   except:
     print(bcolors.FAIL + "CMake - Failed" + bcolors.ENDC)
