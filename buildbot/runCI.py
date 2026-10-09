@@ -57,6 +57,17 @@ Labs["frontend_bound"] = dict()
 Labs["data_driven"] = dict()
 Labs["misc"] = dict()
 
+if runner == "auto":
+  match sys.platform:
+    case "linux":
+      runner = "LinuxIntelAlderlake"
+    case "darwin":
+      runner = "MacosM1"
+    case "win32":
+      runner = "WinZen3"
+    case _:
+      raise ValueError(f"Unexpected platform: {sys.platform}")
+
 if runner == "LinuxIntelAlderlake":
   Labs["memory_bound"]["data_packing"] = LabParams(threshold=40.0)
   Labs["memory_bound"]["false_sharing_1"] = LabParams(threshold=70.0)

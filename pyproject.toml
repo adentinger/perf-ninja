@@ -11,7 +11,7 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm.scripts]
-ci = { cmd = "python ${PDM_PROJECT_ROOT}/buildbot/runCI.py -workdir ${PDM_PROJECT_ROOT}/labs -runner WinZen3" }
+ci = { cmd = "python ${PDM_PROJECT_ROOT}/buildbot/runCI.py -workdir ${PDM_PROJECT_ROOT}/labs -runner auto" }
 
 [dependency-groups]
 dev = [
