@@ -7,8 +7,8 @@ S create_entry(uint8_t first_value, uint8_t second_value) {
 
   entry.i = first_value;
   entry.s = static_cast<uint8_t>(second_value);
-  entry.l = static_cast<unsigned short>(first_value * second_value);
-  entry.d = static_cast<double>(first_value) / maxRandom;
+  entry.l = static_cast<uint16_t>(first_value * second_value);
+  entry.d = static_cast<float>(first_value) / maxRandom;
   entry.b = first_value < second_value;
 
   return entry;
